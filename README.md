@@ -1,1 +1,3 @@
-# Habit Tracker# habit-tracker-php
+# Habit Tracker em PHP
+
+Sistema de acompanhamento de hábitos simples e eficiente para ajudar você a monitorar e melhorar seus hábitos diários.
