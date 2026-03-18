@@ -45,11 +45,11 @@ class User extends Authenticatable
 
     public function habits(): HasMany
     {
-        return $this->HasMany(Habit::class);
+        return $this->hasMany(Habit::class);
     }
 
     public function habitLogs(): HasMany
     {
-        return $this->HasMany(HabitLog::class);
+        return $this->hasMany(HabitLog::class);
     }
 }

@@ -11,7 +11,7 @@ class Habit extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id,',
+        'user_id',
         'name',
     ];
 
@@ -22,6 +22,6 @@ class Habit extends Model
 
     public function habitLogs(): HasMany
     {
-        return $this->HasMany(HabitLog::class);
+        return $this->hasMany(HabitLog::class);
     }
 }
