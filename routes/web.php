@@ -12,11 +12,12 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('auth.logi
 Route::get('/cadastro', [RegisterController::class, 'index'])->name('site.register');
 Route::post('/cadastro', [RegisterController::class, 'store'])->name('auth.register');
 
-//AUTH
+//AUTHCannot access offset of type string on string
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout ');
     
     //HABITS
     Route::resource('dashboard/habits', HabitController::class)->except('show');
     Route::get('dashboard/habits/settings', [HabitController::class, 'settings'])->name('habits.settings');
+    Route::post('dashboard/habits/{habit}/toggle', [HabitController::class, 'toggle'])->name('habits.toggle');
 });
