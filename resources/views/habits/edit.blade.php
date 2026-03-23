@@ -5,7 +5,7 @@
         </h1>
 
         <section class="bg-white max-w-[600px] mx-auto p-10 pb-6 border-2 mt-4">
-            <form action="{{ route('habit.update', $habit->id)}}" method="POST" class="flex flex-col">
+            <form action="{{ route('habits.update', $habit->id)}}" method="POST" class="flex flex-col">
                 @csrf
                 @method('PUT')
     
@@ -31,7 +31,7 @@
                     type="submit"
                     class="bg-white p-2 border-2 "
                 >
-                    Cadastrar hábito
+                    Alterar hábito
                 </button>
             </form>
         </section>
