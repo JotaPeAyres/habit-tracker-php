@@ -10,8 +10,8 @@ class HabitLog extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id,',
-        'habit_id,',
+        'user_id',
+        'habit_id',
         'completed_at',
     ];
 
