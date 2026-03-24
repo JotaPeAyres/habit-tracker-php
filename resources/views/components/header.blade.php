@@ -1,38 +1,41 @@
-<header class="bg-white border-b-2 flex items-center justify-between p-4">
-    {{-- LOGO --}}
-    <div class="flex items-center gap-2">
-        <a href="{{ route('habits.index') }}" class="habit-btn habit-shadow-lg px-2 py-1 bg-habit-orange">
-            HT
-        </a>
-        <p>
-            Habit Tracker
-        </p>
-    </div>
-    <div>
-        @auth
-            <form 
-                class="inline" 
-                action="{{ route('auth.logout ') }}" 
-                method="POST"
-            >
-                @csrf
-
-                <button type="submit" class="habit-shadow-lg habit-btn p-2">
-                    Sair
-                </button>
-            </form>
-        @endauth
-
-        @guest
-        <div class="flex gap-2">
-            <a href="{{ route('site.register') }}" class="p-2 border-2 habit-shadow-lg habit-btn">
-                Cadastrar
+<header class="bg-white border-b-2">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        {{-- LOGO --}}
+        <div class="flex items-center gap-2">
+            <a href="{{ route('habits.index') }}" class="habit-btn habit-shadow-lg px-2 py-1 bg-habit-orange">
+                HT
             </a>
-
-            <a href="{{ route('auth.login') }}" class="p-2 border-2 habit-shadow-lg bg-habit-orange habit-btn">
-                Logar
-            </a>
+            <p>
+                Habit Tracker
+            </p>
         </div>
-        @endguest
+
+        <div>
+            @auth
+                <form 
+                    class="inline" 
+                    action="{{ route('auth.logout ') }}" 
+                    method="POST"
+                >
+                    @csrf
+
+                    <button type="submit" class="habit-shadow-lg habit-btn p-2">
+                        Sair
+                    </button>
+                </form>
+            @endauth
+
+            @guest
+            <div class="flex gap-2">
+                <a href="{{ route('site.register') }}" class="p-2 border-2 habit-shadow-lg habit-btn">
+                    Cadastrar
+                </a>
+
+                <a href="{{ route('auth.login') }}" class="p-2 border-2 habit-shadow-lg bg-habit-orange habit-btn">
+                    Logar
+                </a>
+            </div>
+            @endguest
+        </div>
     </div>
 </header>
