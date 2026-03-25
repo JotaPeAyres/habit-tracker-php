@@ -50,15 +50,18 @@
               {{-- Espaço vazio para alinhar semanas --}}
               <div class="w-3 h-3"></div>
             @else
-              @php
+                @php
                 // TODO: Verificar se tem log nessa data
                 // Por enquanto randômico
-                $done = rand(0, 1);
-              @endphp
-              <div class="w-3 h-3 rounded-xs cursor-pointer transition hover:ring-2 hover:ring-blue-400
-                       {{ $done ? 'bg-[#FF7A05]' : 'bg-[#DADFE9]' }}"
-                   title="{{ $day->format('d/m/Y') }} - {{ $day->translatedFormat('l') }}"
-              ></div>
+                    $hasDone = $habit->habitLogs
+                        ->where('completed_at', $day->toDateString())
+                        ->isNotEmpty();
+                @endphp
+                <div class="w-3 h-3 rounded-xs cursor-pointer transition hover:ring-2 hover:ring-blue-400
+                    {{ $hasDone ? 'bg-[#FF7A05]' : 'bg-[#DADFE9]' }}"
+                    title="{{ $day->format('d/m/Y') }} - {{ $day->translatedFormat('l') }}"
+                >
+                </div>
             @endif
           @endforeach
         </div>
